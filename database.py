@@ -5,7 +5,8 @@ from dotenv import load_dotenv
 
 from sql_utils import run_sql_file
 
-
+load_dotenv()
+print(os.environ.get("HOST"))
 class Database:
     def __init__(self):
         """
@@ -15,7 +16,7 @@ class Database:
         load_dotenv()
 
         self.host = os.environ.get("HOST")
-        self.port = int(os.environ.get("PORT"))
+        self.port = os.environ.get("PORT")
         self.database = os.environ.get("DATABASE")
         self.user = os.environ.get("USER")
         self.password = os.environ.get("PASSWORD")
