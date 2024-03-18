@@ -1,9 +1,9 @@
-CREATE TABLE IF NOT EXISTS band (bandName VARCHAR(50), creation YEAR, genre varchar(50));
+CREATE TABLE IF NOT EXISTS band (bandName VARCHAR(50), creation YEAR, genre varchar(50), PRIMARY KEY (bandName));
 INSERT INTO band (bandName, creation, genre) VALUES ('Crazy Duo', 2015, 'rock'), ('Luna', 2009, 'classical'), ('Mysterio', 2019, 'pop');
 
 ALTER TABLE singer RENAME TO musician;
-
 ALTER TABLE musician RENAME COLUMN singerName TO musicianName;
+ALTER TABLE musician DROP PRIMARY KEY, ADD CONSTRAINT musician.musicianName PRIMARY KEY (musicianName);
 
 ALTER TABLE musician ADD COLUMN role VARCHAR(50), ADD COLUMN brandName VARCHAR(50);
 UPDATE musician SET role = 'vocals', brandName = 'Crazy Duo' WHERE musicianName = 'Alina';
