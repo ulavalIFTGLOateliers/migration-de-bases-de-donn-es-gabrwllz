@@ -5,8 +5,6 @@ from dotenv import load_dotenv
 
 from sql_utils import run_sql_file
 
-load_dotenv()
-print(os.environ.get("HOST"))
 class Database:
     def __init__(self):
         """
